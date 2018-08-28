@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'xposedtt'
+            keyPassword 'inglory2017'
+            storeFile file('D:\\WorkSpace\\AndroidProject\\xposed_tiktok')
+            storePassword 'inglory2017'
+        }
+    }
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.evayinfo.xposedtt"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation('com.github.hiviiup:grace:4.2.6') {
+        exclude(group: "com.android.support")
+    }
+    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    provided 'de.robv.android.xposed:api:82'
+    implementation files('libs/libphonenumber-8.9.11.jar')
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+}
