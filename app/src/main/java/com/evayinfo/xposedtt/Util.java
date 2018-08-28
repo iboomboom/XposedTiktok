@@ -38,6 +38,11 @@ public class Util {
         String strFilename = getSDPath() +File.separator+"config";
         File configFile = new File(strFilename,"config.txt");
 
+        if (!configFile.exists()) {
+            saveCurrentCountryInfo("日本","jp","08014350231");
+            return new CountryInfo("日本","jp","08014350231");
+        }
+
         String json ="" ;
 
         try {
@@ -61,9 +66,9 @@ public class Util {
     }
 
 
-    public static boolean saveCurrentCountryInfo(String name, String country, String phone) {
+    public static boolean saveCurrentCountryInfo(String name, String area, String phone) {
 
-        CountryInfo countryInfo = new CountryInfo(name,country,phone);
+        CountryInfo countryInfo = new CountryInfo(name,area,phone);
         Gson gson = new Gson();
         String info = gson.toJson(countryInfo);
 

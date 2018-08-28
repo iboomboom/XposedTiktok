@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">抖抖抖音</string>
+    <string name="drawer_close">关闭</string>
+    <string name="drawer_open">开启</string>
+    <string name="string_wechat">weixin/zoo9292</string>
+    <string name="string_hk">香港</string>
+    <string name="string_tw">台湾</string>
+    <string name="string_kr">韩国</string>
+    <string name="string_japan">日本</string>
+    <string name="string_gb">英国</string>
+    <string name="string_us">美国</string>
+    <string name="string_ru">俄罗斯</string>
+    <string name="string_ua">乌克兰</string>
+    <string name="string_other">自定义</string>
+
+
 </resources>

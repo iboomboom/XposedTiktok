@@ -77,7 +77,7 @@ public class HookManager {
             @Override
             protected Object replaceHookedMethod(MethodHookParam param) {
                 try {
-                    return Util.getCountry().getCountryPhone();
+                    return Util.getCountry().getAreaPhone();
                 } catch (Throwable e) {
                     XposedBridge.log(e);
                     return "";
@@ -95,7 +95,7 @@ public class HookManager {
             @Override
             protected Object replaceHookedMethod(MethodHookParam param) {
                 try {
-                    return Util.getCountry().getCountryIso();
+                    return Util.getCountry().getAreaIso();
                 } catch (Throwable e) {
                     XposedBridge.log(e);
                     return "";
@@ -120,7 +120,7 @@ public class HookManager {
                                 Application application = (Application) param.thisObject;
                                 context = application.getApplicationContext();
                                 Grace.init(context);
-                                AppUtils.toast("抖抖抖音~"+Util.getCountry().getCountryName());
+                                AppUtils.toast("抖抖抖音~"+Util.getCountry().getAreaName());
                             } catch (Throwable e) {
                                 XposedBridge.log(e);
                             }

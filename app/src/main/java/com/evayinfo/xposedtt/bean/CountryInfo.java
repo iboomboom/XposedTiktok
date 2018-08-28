@@ -1,37 +1,37 @@
 package com.evayinfo.xposedtt.bean;
 
 public class CountryInfo {
-    private String countryName;
-    private String countryIso;
-    private String countryPhone;
+    private String areaName;
+    private String areaIso;
+    private String areaPhone;
 
-    public CountryInfo(String countryName, String countryIso, String countryPhone) {
-        this.countryName = countryName;
-        this.countryIso = countryIso;
-        this.countryPhone = countryPhone;
+    public CountryInfo(String areaName, String areaIso, String areaPhone) {
+        this.areaName = areaName;
+        this.areaIso = areaIso;
+        this.areaPhone = areaPhone;
     }
 
-    public String getCountryName() {
-        return countryName;
+    public String getAreaName() {
+        return areaName;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
     }
 
-    public String getCountryIso() {
-        return countryIso;
+    public String getAreaIso() {
+        return areaIso;
     }
 
-    public void setCountryIso(String countryIso) {
-        this.countryIso = countryIso;
+    public void setAreaIso(String areaIso) {
+        this.areaIso = areaIso;
     }
 
-    public String getCountryPhone() {
-        return countryPhone;
+    public String getAreaPhone() {
+        return areaPhone;
     }
 
-    public void setCountryPhone(String countryPhone) {
-        this.countryPhone = countryPhone;
+    public void setAreaPhone(String areaPhone) {
+        this.areaPhone = areaPhone;
     }
 }
