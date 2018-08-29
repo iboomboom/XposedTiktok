@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#fff">
+
+    <com.evayinfo.grace.view.KVTextView
+        android:id="@+id/kv_area"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:contentHint="在此处填写数据"
+        app:titleText="地区"
+        app:canEdit="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e8e8e8"/>
+
+    <com.evayinfo.grace.view.KVTextView
+        android:id="@+id/kv_code"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:canEdit="true"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:contentHint="在此处填写数据"
+        app:titleText="代码"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e8e8e8"/>
+
+    <com.evayinfo.grace.view.KVTextView
+        android:id="@+id/kv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:contentHint="在此处填写数据"
+        app:canEdit="true"
+        app:titleText="电话"/>
+
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="保存"
+        android:textColor="#FFF"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/tv_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textColor="#323232"
+        android:textSize="10sp"
+        android:paddingStart="20dp"
+        android:autoLink="web"
+        android:text="@string/string_web_code"
+        android:paddingEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#323232"
+        android:textSize="10sp"
+        android:paddingStart="20dp"
+        android:autoLink="web"
+        android:text="@string/string_web_phone"
+        android:paddingEnd="20dp"/>
+
+</LinearLayout>

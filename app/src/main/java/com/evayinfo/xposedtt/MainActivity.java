@@ -100,7 +100,7 @@ public class MainActivity extends BaseActivity {
                         Util.saveCurrentCountryInfo("乌克兰", "ua", "380391234567");
                         break;
                     case R.id.menu_other:
-                        AppUtils.toast("添加微信，等待新版。或自行去修改配置文件！");
+                        CustomActivity.show(MainActivity.this);
                         break;
                     default:
                         break;

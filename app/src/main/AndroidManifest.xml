@@ -3,6 +3,7 @@
     package="com.evayinfo.xposed_tiktok">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.evayinfo.xposedtt.BaseApp"
@@ -30,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.evayinfo.xposedtt.CustomActivity" />
     </application>
 
 </manifest>

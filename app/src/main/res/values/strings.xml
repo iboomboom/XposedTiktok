@@ -12,6 +12,8 @@
     <string name="string_ru">俄罗斯</string>
     <string name="string_ua">乌克兰</string>
     <string name="string_other">自定义</string>
+    <string name="string_web_code">代码：http://www.chuguo.cn/common/gj.htm</string>
+    <string name="string_web_phone">电话：https://www.ifreesite.com/phone/number-formatting.htm</string>
 
 
 </resources>
