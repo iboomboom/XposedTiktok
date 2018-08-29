@@ -19,3 +19,79 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+
+-optimizationpasses 5 #混淆压缩比率
+-dontusemixedcaseclassnames # 是否使用大小写混合
+-verbose # 混淆时是否记录日志
+-dontpreverify # 混淆时是否做预校验
+-optimizations !code/simplification/arithmetic,!field/,!class/merging/ #混淆算法
+
+#保护注解
+-keepattributes *Annotation*
+
+# 保持哪些类不被混淆
+-keep public class * extends android.app.Fragment
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+   native <methods>;
+}
+-keepclasseswithmembers class * { # 保持自定义控件类不被混淆
+   public <init>(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembers class * {# 保持自定义控件类不被混淆
+   public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+-keepclassmembers class * extends android.app.Activity { # 保持自定义控件类不被混淆
+   public void *(android.view.View);
+}
+-keepclassmembers enum * { # 保持枚举 enum 类不被混淆
+   public static **[] values();
+   public static ** valueOf(java.lang.String);
+}
+-keep class * implements android.os.Parcelable {#保持Parcelable不被混淆
+   public static final android.os.Parcelable$Creator *;
+}
+# Explicitly preserve all serialization members. The Serializable interface
+# is only a marker interface, so it wouldn't save them.
+-keep public class * implements java.io.Serializable {*;}
+-keepclassmembers class * implements java.io.Serializable {
+   static final long serialVersionUID;
+   private static final java.io.ObjectStreamField[]   serialPersistentFields;
+   private void writeObject(java.io.ObjectOutputStream);
+   private void readObject(java.io.ObjectInputStream);
+   java.lang.Object writeReplace();
+   java.lang.Object readResolve();
+}
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+
+#Xposed
+-keep class com.evayinfo.xposedtt.Main {*;}
+
+#ButterKnife
+-keep class butterknife.*
+-keepclasseswithmembernames class * { @butterknife.* <methods>; }
+-keepclasseswithmembernames class * { @butterknife.* <fields>; }
+
+#AndPermission
+-dontwarn com.yanzhenjie.permission.**
+
+#Retrofit
+-keepattributes Signature, InnerClasses
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-dontwarn javax.annotation.**
+-dontwarn kotlin.Unit
+

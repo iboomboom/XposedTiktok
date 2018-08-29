@@ -3,6 +3,7 @@ package com.evayinfo.xposedtt;
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.telephony.CarrierConfigManager;
 import android.telephony.TelephonyManager;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.evayinfo.grace.Grace;
@@ -128,6 +130,7 @@ public class MainActivity extends BaseActivity {
                         setInfo();
                     }
                 }).start();
+
     }
 
     private void setInfo() {

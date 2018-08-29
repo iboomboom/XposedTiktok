@@ -1,7 +1,11 @@
 package com.evayinfo.xposedtt;
 
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v4.os.EnvironmentCompat;
+import android.text.TextUtils;
 
 import com.evayinfo.grace.utils.FileUtils;
 import com.evayinfo.grace.utils.SharedPreUtils;
@@ -109,5 +113,17 @@ public class Util {
         }
         return sdDir.toString();
     }
+
+    public static boolean checkApkExist(Context context){
+        try {
+            ApplicationInfo info = context.getPackageManager()
+                    .getApplicationInfo("io.virtualapp",
+                            PackageManager.GET_UNINSTALLED_PACKAGES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
 }
 
