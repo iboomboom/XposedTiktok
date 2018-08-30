@@ -120,7 +120,7 @@ public class HookManager {
                                 Application application = (Application) param.thisObject;
                                 context = application.getApplicationContext();
                                 Grace.init(context);
-                                AppUtils.toast("抖抖抖音~"+Util.getCountry().getAreaName());
+                                AppUtils.toast("M.抖音~" + Util.getCountry().getAreaName());
                             } catch (Throwable e) {
                                 XposedBridge.log(e);
                             }
@@ -159,7 +159,7 @@ public class HookManager {
                                                 for (TranslateResult.TransResultEntity item : translateResult.getTrans_result()) {
                                                     translateContent = translateContent + item.getDst();
                                                 }
-                                                AppUtils.toast(translateContent,Toast.LENGTH_LONG);
+                                                AppUtils.toast(translateContent, Toast.LENGTH_LONG);
                                             }
                                         });
                             } catch (Throwable e) {

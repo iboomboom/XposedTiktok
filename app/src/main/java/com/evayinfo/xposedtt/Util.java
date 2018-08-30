@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.support.v4.os.EnvironmentCompat;
 import android.text.TextUtils;
 
+import com.evayinfo.grace.utils.AppUtils;
 import com.evayinfo.grace.utils.FileUtils;
 import com.evayinfo.grace.utils.SharedPreUtils;
 import com.evayinfo.xposedtt.bean.CountryInfo;
@@ -38,33 +39,32 @@ public class Util {
 
     public static CountryInfo getCountry() {
 
-
-        String strFilename = getSDPath() +File.separator+"config";
-        File configFile = new File(strFilename,"config.txt");
+        String strFilename = getSDPath() + File.separator + "config";
+        File configFile = new File(strFilename, "config.txt");
 
         if (!configFile.exists()) {
-            saveCurrentCountryInfo("日本","jp","08014350231");
-            return new CountryInfo("日本","jp","08014350231");
+            saveCurrentCountryInfo("日本", "jp", "08014350231");
+            return new CountryInfo("日本", "jp", "08014350231");
         }
 
-        String json ="" ;
+        String json = "";
 
         try {
             //读取当前项目下的StringDemo.java文件
             FileReader fr = new FileReader(configFile);
             //一次读取一个字符数组
-            char[] chs = new char[1024] ;
-            int len = 0 ;
-            while((len=fr.read(chs))!=-1) {
-                json = json + new String(chs,0,len);
+            char[] chs = new char[1024];
+            int len = 0;
+            while ((len = fr.read(chs)) != -1) {
+                json = json + new String(chs, 0, len);
             }
             //释放资源
             fr.close();
 
-            return new Gson().fromJson(json,CountryInfo.class);
+            return new Gson().fromJson(json, CountryInfo.class);
         } catch (Exception e) {
             e.printStackTrace();
-            return new CountryInfo("日本","jp","08014350231");
+            return new CountryInfo("日本", "jp", "08014350231");
         }
 
     }
@@ -72,49 +72,45 @@ public class Util {
 
     public static boolean saveCurrentCountryInfo(String name, String area, String phone) {
 
-        CountryInfo countryInfo = new CountryInfo(name,area,phone);
+        CountryInfo countryInfo = new CountryInfo(name, area, phone);
         Gson gson = new Gson();
         String info = gson.toJson(countryInfo);
 
-        String strFilename = getSDPath() +File.separator+"config";
+        String strFilename = getSDPath() + File.separator + "config";
         File fileText = new File(strFilename);
 
         if (!fileText.exists()) {
             fileText.mkdir();
         }
-        File configFile = new File(fileText,"config.txt");
+        File configFile = new File(fileText, "config.txt");
 
         try {
-            // 创建文件对象
-            // 向文件写入对象写入信息
             FileWriter fileWriter = new FileWriter(configFile);
-
-            // 写文件
             fileWriter.write(info);
-            // 关闭
             fileWriter.close();
-
             return true;
         } catch (IOException e) {
-            //
             e.printStackTrace();
             return false;
         }
     }
 
 
-    public static String getSDPath(){
+    public static String getSDPath() {
         File sdDir = null;
+        //判断sd卡是否存在
         boolean sdCardExist = Environment.getExternalStorageState()
-                .equals(android.os.Environment.MEDIA_MOUNTED);//判断sd卡是否存在
-        if(sdCardExist)
-        {
-            sdDir = Environment.getExternalStorageDirectory();//获取跟目录
+                .equals(android.os.Environment.MEDIA_MOUNTED);
+        if (sdCardExist) {
+            //获取跟目录
+            sdDir = Environment.getExternalStorageDirectory();
+            return sdDir.getAbsolutePath();
+        } else {
+            return "";
         }
-        return sdDir.toString();
     }
 
-    public static boolean checkApkExist(Context context){
+    public static boolean checkApkExist(Context context) {
         try {
             ApplicationInfo info = context.getPackageManager()
                     .getApplicationInfo("io.virtualapp",

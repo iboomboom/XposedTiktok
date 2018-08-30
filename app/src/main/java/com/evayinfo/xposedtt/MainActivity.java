@@ -18,6 +18,7 @@ import com.evayinfo.grace.Grace;
 import com.evayinfo.grace.base.activity.BaseActivity;
 import com.evayinfo.grace.utils.AppUtils;
 import com.evayinfo.grace.utils.DeviceUtils;
+import com.evayinfo.grace.utils.LogUtils;
 import com.evayinfo.xposed_tiktok.R;
 import com.google.i18n.phonenumbers.CountryCodeToRegionCodeMap;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -61,7 +62,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initTitleBar() {
         super.initTitleBar();
-        setTitle("抖抖抖音");
+        setTitle(R.string.app_name);
     }
 
     @Override
@@ -120,6 +121,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initData() {
         super.initData();
+
         AndPermission.with(this)
                 .runtime()
                 .permission(Permission.READ_PHONE_STATE)

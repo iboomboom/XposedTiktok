@@ -5,14 +5,7 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
-    signingConfigs {
-        config {
-            keyAlias 'xposedtt'
-            keyPassword 'inglory2017'
-            storeFile file('D:\\WorkSpace\\AndroidProject\\xposed_tiktok')
-            storePassword 'inglory2017'
-        }
-    }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.evayinfo.xposedtt"
