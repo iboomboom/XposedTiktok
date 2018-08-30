@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
                         Util.saveCurrentCountryInfo("台湾", "tw", "0988660245");
                         break;
                     case R.id.menu_kr:
-                        Util.saveCurrentCountryInfo("韩国", "kr", "01513821965");
+                        Util.saveCurrentCountryInfo("韩国", "kr", "01013821965");
                         break;
                     case R.id.menu_jp:
                         Util.saveCurrentCountryInfo("日本", "jp", "08076015609");
@@ -124,7 +124,7 @@ public class MainActivity extends BaseActivity {
 
         AndPermission.with(this)
                 .runtime()
-                .permission(Permission.READ_PHONE_STATE)
+                .permission(Permission.READ_PHONE_STATE,Permission.WRITE_EXTERNAL_STORAGE)
                 .onGranted(new Action<List<String>>() {
                     @SuppressLint("SetTextI18n")
                     @Override

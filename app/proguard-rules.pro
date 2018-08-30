@@ -95,3 +95,41 @@
 -dontwarn javax.annotation.**
 -dontwarn kotlin.Unit
 
+#ucrop
+-dontwarn com.yalantis.ucrop**
+-keep class com.yalantis.ucrop** { *; }
+-keep interface com.yalantis.ucrop** { *; }
+
+# RxJava RxAndroid
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+# Gson
+-keep class com.google.gson.stream.** { *; }
+-keepattributes EnclosingMethod
+
+# OkHttp
+# JSR 305 annotations are for embedding nullability information.
+ -dontwarn javax.annotation.**
+
+ # A resource is loaded with a relative path so the package of this class must be preserved.
+ -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
+ # Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+ -dontwarn org.codehaus.mojo.animal_sniffer.*
+
+ # OkHttp platform used only on JVM and when Conscrypt dependency is available.
+ -dontwarn okhttp3.internal.platform.ConscryptPlatform
+
+#APP内实体类
+-keep class com.evayinfo.xposedtt.bean.**{*;}
+
